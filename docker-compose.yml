@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     ports: 
       - "3000:3000"
+      - "3001:3001"
     volumes:
       - ./docs:/src
-    command: browser-sync start --server --directory --files "*"
+    command: browser-sync start --server --no-open false --directory --files "*"
