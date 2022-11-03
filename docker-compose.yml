@@ -9,6 +9,6 @@ services:
       - "3000:3000"
       - "3001:3001"
     volumes:
-      #- ./docs:/src
-      - ./fullstack-course4/examples:/src
+      #- ./fullstack-course4/examples:/src:ro
+      - ./docs/:/src:ro
     command: browser-sync start --server --no-open false --directory --files "*"
