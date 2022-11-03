@@ -30,6 +30,15 @@ h2 {
     padding-bottom: 5px;
 }
 
+h2#one {
+    background-color: #90b6a0;
+}
+h2#two {
+    background-color: #a8a6cc;
+}
+h2#three {
+    background-color: #a587a2;
+}
 
 
 p {
