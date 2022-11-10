@@ -24,4 +24,6 @@ Some interesting CSS / bootstrap features:
 - text-shadow -> Adds shadow to text
 - class="visible-md visible-lg" -> bootstrap classes to hide elements on smaller screens
     - now replaced by [Hiding Elements](https://getbootstrap.com/docs/5.2/utilities/display/#hiding-elements)?
-- 
+
+[solution assignment week 3 on my github](https://petitnigaud.github.io/coursera-test/module3-solution/)
+
