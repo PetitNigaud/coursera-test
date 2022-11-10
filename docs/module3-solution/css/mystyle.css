@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #b1b6bb;  
+}
+
+.nav-link {
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+.navbar-collapse {
+    background-color: #c5ccd3;   
+}
+
+.section {
+    height: 600px;
+    background-color: #dadada;  
+    padding: 0px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+p {
+    padding: 0px;
+    margin: 12px;
+}
