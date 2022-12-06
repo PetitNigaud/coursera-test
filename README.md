@@ -16,7 +16,7 @@ Coursera test repo
 
 > [Lecture 12](./fullstack-course4/examples/Lecture12) to [Lecture 26](./fullstack-course4/examples/Lecture26)
 
-[solution assignment week 2 on my github](https://petitnigaud.github.io/coursera-test/module2-solution/)
+### [solution assignment week 2 on my github](https://petitnigaud.github.io/coursera-test/module2-solution/)
 
 ## Week 3 - Real Life Example
 
@@ -30,7 +30,7 @@ Some interesting CSS / bootstrap features:
 - class="visible-md visible-lg" -> bootstrap classes to hide elements on smaller screens
     - now replaced by [Hiding Elements](https://getbootstrap.com/docs/5.2/utilities/display/#hiding-elements)?
 
-[solution assignment week 3 on my github](https://petitnigaud.github.io/coursera-test/module3-solution/)
+### [solution assignment week 3 on my github](https://petitnigaud.github.io/coursera-test/module3-solution/)
 
 ## Week 4 - Javascript
 
@@ -275,4 +275,148 @@ johnGreeter.sayHi();
 
 // app.js
 yaakovGreeter.sayHello();
+```
+
+### [solution assignment week 2 on my github](https://petitnigaud.github.io/coursera-test/module4-solution/)
+
+## Week 5
+
+> [Lecture 53](./fullstack-course4/examples/Lecture53) to [Lecture 63](./fullstack-course4/examples/Lecture63)
+
+- [Lecture 53](./fullstack-course4/examples/Lecture53): DOM Manipulation
+  - DOM - Document Object Model
+  - in JS _document_ object represents the web page
+  - Get and manipulate HTML elements
+
+```javascript
+function sayHello () {
+  var name =
+   document.getElementById("name").value;   // get element by name and then its value
+  var message = "<h2>Hello " + name + "!</h2>";  // add h2 tag
+
+  document
+    .getElementById("content")
+    .innerHTML = message;   // innerHTML renders HTML code as <h2></h2>
+
+  if (name === "student") {
+    var title = 
+      document
+        .querySelector("#title")    // select by query (id)
+        .textContent;
+    title += " & Lovin' it!";
+    document
+        .querySelector("h1")    // select by query (element type)
+        .textContent = title;
+  }
+}
+```
+
+- [Lecture 54](./fullstack-course4/examples/Lecture54): Handling Events
+  - Add JS functions to events (line _onclick_) of HTML page
+  - _DOMContentLoaded_ event -> see below
+
+
+```javascript
+function sayHello (event) {
+    // this points to element emitting the event
+    this.textContent = "Said it!"; // set content of that element
+    // [...]
+}
+// Unobtrusive event binding
+document.querySelector("button")
+    .addEventListener("click", sayHello);
+
+
+// use this to load embedded content after HTML page has loaded
+// -> JS can be imported in HTML header instead of end of HTML content
+document.addEventListener("DOMContentLoaded",
+  function (event) {
+    // [...]
+  }
+)
+```
+
+- [Lecture 55](./fullstack-course4/examples/Lecture55): The _event_ Argument
+  - [Event Documentation on Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+```javascript
+// add to object "body" "Mousemove" event and print mouse coordinates of shift is pressed
+document.querySelector("body")
+.addEventListener("mousemove",
+  function (event) {
+    if (event.shiftKey === true) {
+      console.log("x: " + event.clientX);
+      console.log("y: " + event.clientY);
+    }
+  }
+);
+```
+
+- Lecture 56: HTTP Basics
+  - _URI_: Uniform Resource Identifier
+  - `GET /index.html?firstName=Yaakov HTTP/1.1`
+    - `GET`: Method
+    - `/index.html`: URI String
+    - `firstName=Yaakov`: Query String
+    - `HTTP/1.1`: HTTP Version
+  - _GET_ method: Retrieves source, data passed as part of URI (i.e. query)
+  - _POST_ method: Sends data to server to be processed, data sent in message body
+  - request headers: 
+    - _Host: coursera.org_
+    - _Accept-Charset: utf-8_
+  - response structure:
+    - _HTTP/1.1_: HTTP Version
+    - _200_: response status code
+    - _OK_: english response text of status code
+
+- [Lecture 57](./fullstack-course4/examples/Lecture57): Ajax Basics 
+  - _Asynchronous Javascript And XML_
+  - XML not much used today, but plain text and JSON
+  - Instead of responding with whole HTML web page, only small part is returned (much faster)
+
+- [Lecture 58](./fullstack-course4/examples/Lecture58): Processing JSON
+  - JSON not a JS Object Literal, just a string
+  - Needs conversion
+    - `var obj = JSON.parse(jsonString);`
+    - `var str = JSON.stringify(obj);`
+
+
+- [Lecture 59](./fullstack-course4/examples/Lecture59): Using JQuery (for example website)
+ - [JQuery](https://jquery.com/) is a JS library with nice features
+
+```javascript
+$(function () { // Same as document.addEventListener("DOMContentLoaded"...
+
+  // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
+  $("#navbarToggle").blur(function (event) {
+    var screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+      $("#collapsable-nav").collapse('hide');
+    }
+  });
+});
+```
+
+- [Lecture 61](./fullstack-course4/examples/Lecture61): Using JQuery (for example website)
+  - (Similar to Python f-strings) replace keywords in double curly braces in strings
+
+```html
+<div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
+  <a href="#" onclick="$dc.loadMenuItems('{{short_name}}');">
+    <div class="category-tile">
+      <img width="200" height="200" src="images/menu/{{short_name}}/{{short_name}}.jpg" alt="{{name}}">
+      <span>{{name}}</span>
+    </div>
+  </a>
+</div>
+```
+
+```javascript
+// Return substitute of '{{propName}}'
+// with propValue in given 'string'
+var insertProperty = function (string, propName, propValue) {
+  var propToReplace = "{{" + propName + "}}";
+  string = string.replace(new RegExp(propToReplace, "g"), propValue);
+  return string;
+};
 ```
