@@ -277,7 +277,7 @@ johnGreeter.sayHi();
 yaakovGreeter.sayHello();
 ```
 
-### [solution assignment week 2 on my github](https://petitnigaud.github.io/coursera-test/module4-solution/)
+### [solution assignment week 4 on my github](https://petitnigaud.github.io/coursera-test/module4-solution/)
 
 ## Week 5
 
@@ -420,3 +420,5 @@ var insertProperty = function (string, propName, propValue) {
   return string;
 };
 ```
+
+### [solution assignment week 5 on my github](https://petitnigaud.github.io/coursera-test/module5-solution/)
